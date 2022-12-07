@@ -9,15 +9,12 @@ import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 export class GameControlComponent {
   counter = 0;
   cInterval: any;
-  
-
-  addToCounter() {
-    console.log("Counter: ", this.counter);
-    return this.counter += 1;
-  }
 
   startGame() {
-    this.cInterval = setInterval(this.addToCounter, 1000);
+    this.cInterval = setInterval(() => {
+      console.log("Counter: ", this.counter);
+      return this.counter += 1;
+    }, 1000);
     console.log("Game started");
   }
 
