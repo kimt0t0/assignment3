@@ -1,2 +1,12 @@
 <h1>Assignment 3 App</h1>
-<app-game-control></app-game-control>
+<br/>
+<br/>
+<div class="row">
+  <div class="col-xs-12">
+    <app-game-control></app-game-control>
+    <div class="col-sm-7">
+      <app-odd *ngIf='checkCounter() === "odd"'></app-odd>
+      <app-even *ngIf='checkCounter() === "odd"'></app-even>
+    </div>
+  </div>
+</div>
