@@ -1,6 +1,8 @@
 .odd {
-    color: orange;
-    border: 1px solid orange;
+    color: blueviolet;
+    border: 1px solid blueviolet;
     padding: 5px;
     border-radius: 2px;
+    width: 250px;
+    text-align: center;
 }

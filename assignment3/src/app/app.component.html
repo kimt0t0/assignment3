@@ -3,10 +3,12 @@
 <br/>
 <div class="row">
   <div class="col-xs-12">
-    <app-game-control></app-game-control>
-    <div class="col-sm-7">
-      <app-odd *ngIf='checkCounter() === "odd"'></app-odd>
-      <app-even *ngIf='checkCounter() === "odd"'></app-even>
+    <app-game-control (intervalStopped)="onIntervalStopped($event)"></app-game-control>
+    <br/>
+    <br/>
+    <div class="col-sm-7" *ngFor="let gameElement of gameElements">
+      <app-odd *ngIf='gameElement === "odd"'></app-odd>
+      <app-even *ngIf='gameElement === "even"'></app-even>
     </div>
   </div>
 </div>

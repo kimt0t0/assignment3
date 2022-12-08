@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'assignment3';
+  gameElements: string[] = [];
+
+  onIntervalStopped(stoppedNumber: number) {
+    if (stoppedNumber % 2 == 0 || stoppedNumber == 0) {
+      this.gameElements.push("even");
+    }
+    else {
+      this.gameElements.push("odd");
+    }
+  }
 }

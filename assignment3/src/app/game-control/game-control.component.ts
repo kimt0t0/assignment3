@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 
 @Component({
@@ -6,21 +6,24 @@ import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
   templateUrl: './game-control.component.html',
   styleUrls: ['./game-control.component.css']
 })
-export class GameControlComponent {
-  counter = 0;
-  @Output('gameCounter') cInterval: any;
 
-  startGame() {
+export class GameControlComponent {
+  @Output('intervalStarted') intervalStarted = new EventEmitter<number>();
+  @Output('intervalStopped') intervalStopped = new EventEmitter<number>();
+  counter = 0;
+  cInterval: any;
+
+  ngOnInit() {}
+
+  onStartGame() {
     this.cInterval = setInterval(() => {
-      console.log("Counter: ", this.counter);
-      return this.counter += 1;
+      this.intervalStarted.emit(this.counter + 1);
+      this.counter++;
     }, 1000);
   }
 
-  stopGame() {
-    clearInterval(this.cInterval);
-    this.cInterval = null;
-    this.counter = 0;
+  onStopGame() {
+    this.intervalStopped.emit(this.counter);
   }
 
 }
