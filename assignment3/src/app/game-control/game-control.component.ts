@@ -8,7 +8,6 @@ import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 })
 
 export class GameControlComponent {
-  @Output('intervalStarted') intervalStarted = new EventEmitter<number>();
   @Output('intervalStopped') intervalStopped = new EventEmitter<number>();
   counter = 0;
   cInterval: any;
@@ -17,7 +16,6 @@ export class GameControlComponent {
 
   onStartGame() {
     this.cInterval = setInterval(() => {
-      this.intervalStarted.emit(this.counter + 1);
       this.counter++;
     }, 1000);
   }
